@@ -58,13 +58,13 @@ async def analyze(request):
     data = StringIO(s)
     mkdir('Downloaded_Images')
     download_images(data, 'Downloaded_Images')
-    path2 = Path('Downloaded_Images')
+    path = Path('Downloaded_Images')
     data = ImageList.from_folder(path)
     learn = load_learner(path, export_file_name, test=data)
     y, _ = learn.get_preds(DatasetType.Test)
     y = torch.argmax(y, dim=1)
     preds = [learn.data.classes[int(x)] for x in y]
-    # rm -r 'Downloaded_Images'
+    rmdir('Downloaded_Images')
     resultsFile = open('results.csv', 'wb')
     wr = csv.writer(resultsFile)
     wr.writerows([preds])
