@@ -56,7 +56,7 @@ async def analyze(request):
     content = await (data['file'].read())
     s = str(content, 'utf-8')
     data = StringIO(s)
-    !mkdir('Downloaded_Images')
+    mkdir('Downloaded_Images')
     download_images(data, 'Downloaded_Images')
     path2 = Path('Downloaded_Images')
     data = ImageList.from_folder(path)
