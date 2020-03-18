@@ -1,0 +1,57 @@
+<html lang='en'>
+<head>
+    <meta charset='utf-8'>
+    <link rel='stylesheet' href='../static/style.css'>
+    <script src='../static/client.js'></script>
+</head>
+<body>
+<div>
+    <div class='center'>
+        <div class='title'>Resource Road Multi-Vehicle Classifier</div>
+        <h3>Instructions</h3>
+        <p>
+            Click the <strong>Select Image</strong> button below and choose a vehicle image from your computer to upload. Sample images can be downloaded from the following Google Drive <a href="https://drive.google.com/drive/folders/1dc2alLtvtRLuSZC_BOEcQY_RXypfGEwD?usp=sharing">folder</a>.<br>After selecting and uploading an image, click the <strong>Analyze</strong> button. When the image analysis is complete, the predicted vehicle classification will be displayed below the button.
+        </p>
+        <h3>Classifications</h3>
+        <p>
+            The ten possible vehicle classifications and are listed below along with a short description for each:<br>
+        </p>
+        <div>
+            <ul>
+                <li><strong>log-truck-loaded</strong>: loaded log truck</li>
+                <li><strong>log-truck-empty</strong>: empty log truck</li>
+                <li><strong>log-truck-dark</strong>: log trucks before sunrise</li>
+                <li><strong>forestry-other</strong>: chip trucks, low-beds, gravel trucks, etc.</li>
+                <li><strong>grader</strong>: road grader</li>
+                <li><strong>industrial-commercial</strong>: large industrial or commerciale vehicles (non-forestry) such as tractor trailers, fuel trucks, buess, BC Hydro trucks, flatbeds, etc.</li>
+                <li><strong>passenger</strong>: cars, pick-ups (including forestry crew trucks), vans, SUVs, pickups w/ trailer, etc.</li>
+                <li><strong>passenger-dark</strong>: passenger vehicles before sunrise or after sunset</li>
+            </ul>
+        </div>
+        <div class='content'>
+            <div class='no-display'>
+                <input id='file-input'
+                       class='no-display'
+                       type='file'
+                       name='file'
+                       accept='image/*'
+                       onchange='showPicked(this)'>
+            </div>
+            <button class='choose-file-button' type='button' onclick='showPicker()'>Select Image</button>
+            <div class='upload-label'>
+                <label id='upload-label'>No file chosen</label>
+            </div>
+            <div>
+                <img id='image-picked' class='no-display' alt='Chosen Image' height='200'>
+            </div>
+            <div class='analyze'>
+                <button id='analyze-button' class='analyze-button' type='button' onclick='analyze()'>Analyze</button>
+            </div>
+            <div class='result-label'>
+                <label id='result-label'></label>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
