@@ -64,7 +64,7 @@ async def analyze(request):
     y, _ = learn.get_preds(DatasetType.Test)
     y = torch.argmax(y, dim=1)
     preds = [learn.data.classes[int(x)] for x in y]
-    rm -r 'Downloaded_Images'
+    # rm -r 'Downloaded_Images'
     resultsFile = open('results.csv', 'wb')
     wr = csv.writer(resultsFile)
     wr.writerows([preds])
